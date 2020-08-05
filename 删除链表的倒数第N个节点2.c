@@ -35,4 +35,39 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n)
     return head;
 
 }
+struct ListNode *readlist()
+{
+	struct ListNode *head,*tail,*p;
+	int n;
+	int size=sizeof(struct ListNode);
+	scanf("%d",&n);
+	head = tail = NULL;
+	while(n != -1)
+	{
+		p=(struct ListNode *)malloc(size);
+		p->val = n;
+		if(head == NULL)
+		{
+			head = p;
+		}
+		else
+		{
+			tail->next = p;
+		}
+		tail = p;
+		scanf("%d",&n);
+	}
+	tail->next = NULL;
+	return head;
+
+}
 int main()
+{
+	struct ListNode*head;
+	int n;
+	scanf("%d",&n);
+	readlist();
+	removeNthFromEnd(head,n);
+
+	return 0;
+}
